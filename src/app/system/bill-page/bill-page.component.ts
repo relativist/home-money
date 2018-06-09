@@ -4,6 +4,7 @@ import {Bill} from '../shared/models/bill.model';
 import {Subscription} from 'rxjs/Subscription';
 import {combineLatest} from 'rxjs/observable/combineLatest';
 import {User} from '../../shared/models/user.model';
+import {UserService} from '../../shared/services/user.service';
 
 @Component({
   selector: 'app-bill-page',
@@ -12,9 +13,13 @@ import {User} from '../../shared/models/user.model';
 })
 export class BillPageComponent implements OnInit, OnDestroy {
 
-  subscription: Subscription;
+  sub1: Subscription;
+  sub2: Subscription;
+  currency: any;
+  bill: Bill;
+  isLoaded = false;
 
-  constructor(private billService: BillService) {
+  constructor(private billService: BillService, private userService: UserService) {
   }
 
   ngOnInit() {
@@ -23,16 +28,30 @@ export class BillPageComponent implements OnInit, OnDestroy {
     //     console.log(bill);
     //   });
 
-    this.subscription = combineLatest(
+    this.sub1 = combineLatest(
       this.billService.getBill(),
       this.billService.getCurrency()
-    ).subscribe((bill: [Bill, any]) => {
-      console.log(bill);
+    ).subscribe((data: [Bill, any]) => {
+      this.bill = data[0];
+      this.currency = data[1];
+      this.isLoaded = true;
     });
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    this.sub1.unsubscribe();
+    if (this.sub2) {
+      this.sub2.unsubscribe();
+    }
   }
 
+  onRefresh() {
+    this.isLoaded = false;
+
+    this.sub2 = this.billService.getCurrency()
+      .subscribe((currency: any) => {
+        this.currency = currency;
+        this.isLoaded = true;
+      });
+  }
 }

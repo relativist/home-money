@@ -3,21 +3,18 @@ import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {User} from '../../../shared/models/user.model';
 import {Bill} from '../models/bill.model';
+import {BaseApi} from '../../../shared/core/base-api';
 
 @Injectable()
-export class BillService {
-  constructor(private  http: HttpClient) {
-
-  }
-
-  getFakeBill(): Observable<User> {
-    const user123 = this.http.get<User>('http://localhost:3000/users?email=w2fm@mail.ru');
-    return user123.map((user: User) => user[0] ? user[0] : undefined);
+export class BillService extends BaseApi {
+  constructor(public http: HttpClient) {
+    super(http);
   }
 
   getBill(): Observable<Bill> {
-    const userObservable = this.http.get('http://localhost:3000/bill');
-    return userObservable.map((bill: Bill) => bill);
+    return this.get('bill');
+    //   const userObservable = this.http.get('http://localhost:3000/bill');
+    //   return userObservable.map((bill: Bill) => bill);
   }
 
   getCurrency(base: string = 'RUB'): Observable<any> {

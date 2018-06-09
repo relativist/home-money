@@ -11,6 +11,12 @@
       "password": "123123",
       "name": "123",
       "id": 2
+    },
+    {
+      "email": "va@mail.ru",
+      "password": "123123",
+      "name": "Валентина",
+      "id": 3
     }
   ],
   "bill": {
@@ -32,6 +38,11 @@
       "id": 3,
       "name": "Машина",
       "capacity": 7000
+    },
+    {
+      "name": "123",
+      "capacity": 11,
+      "id": 4
     }
   ],
   "events": [
