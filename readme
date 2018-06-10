@@ -1,3 +1,4 @@
 npm i -S moment
 ng serve --prod
 npm i -g json-server
+json-server --watch db.json --port 3000
