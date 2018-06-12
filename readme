@@ -2,3 +2,6 @@ npm i -S moment
 ng serve --prod
 npm i -g json-server
 json-server --watch db.json --port 3000
+
+#if problem with vendor folder (Not Found)
+npm rebuild node-sass
