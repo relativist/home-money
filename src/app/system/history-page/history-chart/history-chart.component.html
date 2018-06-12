@@ -1,20 +1,15 @@
 <section class="section">
   <div class="row">
-    <div class="col-md-12">
-      <div class="card">
-        <div class="card-block">
-          <!--<section class="example" >-->
-            <!--<ngx-charts-pie-chart-->
-              <!--[view]="[545,355]"-->
-              <!--[results]="data"-->
-              <!--[legend]="false"-->
-              <!--[labels]="true"-->
-              <!--[doughnut]="true"-->
-              <!--&gt;-->
-            <!--</ngx-charts-pie-chart>-->
-          <!--</section>-->
-        </div>
-      </div>
+    <div class="col-xs-12 text-center chart-center">
+        <ngx-charts-pie-chart
+          [view]="[700, 400]"
+          [results]="data"
+          [explodeSlices]="false"
+          [legend]="false"
+          [labels]="true"
+          [doughnut]="true"
+        >
+        </ngx-charts-pie-chart>
     </div>
   </div>
 </section>

@@ -13,3 +13,5 @@ ng update @angular/cli
 
 #ngx-charts
 npm i @swimlane/ngx-charts --save
+npm i @swimlane/ngx-charts@5.3.1 --save
+npm i d3 --save

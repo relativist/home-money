@@ -3,6 +3,8 @@
     Страница истории <span class="sparkline bar"></span>
   </h3>
 </div>
-<app-history-chart></app-history-chart>
+<div *ngIf="!isLoaded" class="text-center">Loading...</div>
+<div *ngIf="isLoaded"></div>
+<app-history-chart [data]="chartData"></app-history-chart>
 <app-histor-events></app-histor-events>
 <app-history-filter></app-history-filter>
