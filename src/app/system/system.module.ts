@@ -23,6 +23,7 @@ import {EventsService} from './shared/services/events.service';
 import { HistoryChartComponent } from './history-page/history-chart/history-chart.component';
 import { HistorEventsComponent } from './history-page/histor-events/histor-events.component';
 import { HistorDetailComponent } from './history-page/histor-detail/histor-detail.component';
+import { HistoryFilterComponent } from './history-page/history-filter/history-filter.component';
 
 @NgModule({
   imports: [
@@ -47,7 +48,8 @@ import { HistorDetailComponent } from './history-page/histor-detail/histor-detai
     EditCategoryComponent,
     HistoryChartComponent,
     HistorEventsComponent,
-    HistorDetailComponent
+    HistorDetailComponent,
+    HistoryFilterComponent
   ],
   providers: [
     BillService,

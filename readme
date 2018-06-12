@@ -5,3 +5,11 @@ json-server --watch db.json --port 3000
 
 #if problem with vendor folder (Not Found)
 npm rebuild node-sass
+
+
+#for update angular versions:
+npm install --save-dev @angular/cli@latest
+ng update @angular/cli
+
+#ngx-charts
+npm i @swimlane/ngx-charts --save
