@@ -17,10 +17,16 @@
       "password": "123123",
       "name": "Валентина",
       "id": 3
+    },
+    {
+      "email": "a.p.sitnikov@gmail.com",
+      "password": "restrest",
+      "name": "Артем",
+      "id": 4
     }
   ],
   "bill": {
-    "value": 100000,
+    "value": 97679,
     "currency": "RUB"
   },
   "categories": [
@@ -40,9 +46,14 @@
       "capacity": 7000
     },
     {
-      "name": "123",
-      "capacity": 11,
+      "name": "Эльдорадо",
+      "capacity": 1133,
       "id": 4
+    },
+    {
+      "name": "Супер",
+      "capacity": 100,
+      "id": 5
     }
   ],
   "events": [
@@ -85,6 +96,38 @@
       "date": "10.06.2017 14:01:58",
       "id": 5,
       "description": "Заправка + проход ТО"
+    },
+    {
+      "type": "income",
+      "amount": 12,
+      "category": 1,
+      "date": "12.06.2018 11:32:03",
+      "description": "23",
+      "id": 6
+    },
+    {
+      "type": "outcome",
+      "amount": 133,
+      "category": 4,
+      "date": "12.06.2018 12:31:29",
+      "description": "foo",
+      "id": 7
+    },
+    {
+      "type": "outcome",
+      "amount": 2000,
+      "category": 3,
+      "date": "12.06.2018 12:43:21",
+      "description": "123",
+      "id": 8
+    },
+    {
+      "type": "outcome",
+      "amount": 200,
+      "category": 5,
+      "date": "12.06.2018 12:43:47",
+      "description": "123",
+      "id": 9
     }
   ]
 }

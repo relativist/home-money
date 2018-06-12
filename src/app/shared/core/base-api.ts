@@ -20,13 +20,18 @@ export class BaseApi {
     return some.map((response: Response) => response[0] ? response[0] : response);
   }
 
+  public getArray(url: string = ''): Observable<any> {
+    const some = this.http.get(this.getUrl(url));
+    return some.map((response: Response) => response);
+  }
+
   public post(url: string = '', data: any = {}): Observable<any> {
     const some = this.http.post(this.getUrl(url), data);
     return some.map((response: Response) => response[0] ? response[0] : response);
   }
 
   public put(url: string = '', data: any = {}): Observable<any> {
-    const some = this.http.post(this.getUrl(url), data);
+    const some = this.http.put(this.getUrl(url), data);
     return some.map((response: Response) => response[0] ? response[0] : response);
   }
 }
