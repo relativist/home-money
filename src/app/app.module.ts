@@ -9,6 +9,8 @@ import {AppRoutingModule} from './app-routing.module';
 import {UserService} from './shared/services/user.service';
 import {AuthService} from './shared/auth.service';
 import {SystemModule} from './system/system.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+// import {NgxChartsModule} from '@swimlane/ngx-charts';
 
 
 @NgModule({
@@ -20,7 +22,9 @@ import {SystemModule} from './system/system.module';
     HttpClientModule,
     AuthModule,
     AppRoutingModule,
-    SystemModule
+    SystemModule,
+    BrowserAnimationsModule,
+    // NgxChartsModule
   ],
   providers: [UserService, AuthService],
   bootstrap: [AppComponent]

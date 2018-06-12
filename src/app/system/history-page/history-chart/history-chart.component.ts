@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-history-chart',
@@ -7,9 +7,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HistoryChartComponent implements OnInit {
 
-  constructor() { }
+  data = [
+    {
+      'name': 'Germany',
+      'value': 8940000
+    },
+    {
+      'name': 'USA',
+      'value': 5000000
+    },
+    {
+      'name': 'France',
+      'value': 7200000
+    }
+  ];
+
+  constructor() {
+  }
 
   ngOnInit() {
   }
+
+
 
 }
