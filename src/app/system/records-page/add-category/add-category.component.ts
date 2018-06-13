@@ -10,13 +10,13 @@ import {Subscription} from 'rxjs/Subscription';
   templateUrl: './add-category.component.html',
   styleUrls: ['./add-category.component.scss']
 })
-export class AddCategoryComponent implements OnDestroy{
+export class AddCategoryComponent implements OnDestroy {
   @Output() onCategoryAdd = new EventEmitter<Category>();
+
+  sub1: Subscription;
 
   constructor(private  categoryService: CategoriesService) {
   }
-
-  sub1: Subscription;
 
   onSubmit(form: NgForm) {
     let {name, capacity} = form.value;

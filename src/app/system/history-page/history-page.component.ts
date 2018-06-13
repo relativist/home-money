@@ -5,6 +5,7 @@ import {combineLatest} from 'rxjs/observable/combineLatest';
 import {Category} from '../shared/models/category.model';
 import {APPEvent} from '../shared/models/event.model';
 import {Subscription} from 'rxjs/Subscription';
+import {Observable} from 'rxjs/Observable';
 
 @Component({
   selector: 'app-history-page',
@@ -25,15 +26,18 @@ export class HistoryPageComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    console.log('1');
-    this.sub1 = combineLatest(this.catService.getCategories(), this.eventService.getEvents())
-      .subscribe((datas: [Category[], APPEvent[]]) => {
-        this.categories = datas[0];
-        this.events = datas[1];
-        console.log('1');
-        this.calculateChartData();
-        this.isLoaded = true;
+    this.sub1 = combineLatest(
+      this.catService.getCategories(),
+      this.eventService.getEvents()
+    ).subscribe((data: [Category[], APPEvent[]]) => {
+      this.categories = data[0];
+      this.events = data[1];
+      this.events.forEach(e => {
+        e.catName = this.categories.find(c => c.id === e.category).name;
       });
+      this.calculateChartData();
+      this.isLoaded = true;
+    });
   }
 
   calculateChartData(): void {

@@ -6,5 +6,5 @@
 <div *ngIf="!isLoaded" class="text-center">Loading...</div>
 <div *ngIf="isLoaded"></div>
 <app-history-chart [data]="chartData"></app-history-chart>
-<app-histor-events></app-histor-events>
+<app-history-events [categories]="categories" [events]="events"></app-history-events>
 <app-history-filter></app-history-filter>
