@@ -1,5 +1,11 @@
 export class AuthService {
+
   private isAuthenticated = false;
+
+  constructor() {
+    console.log('Create AuthService');
+  }
+
 
   login() {
     this.isAuthenticated = true;
@@ -11,6 +17,7 @@ export class AuthService {
   }
 
   isLoggedIn(): boolean {
-    return this.isAuthenticated;
+    const user = JSON.parse(window.localStorage.getItem('user'));
+    return !!user;
   }
 }
