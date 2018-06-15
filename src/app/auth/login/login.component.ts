@@ -3,13 +3,16 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../../shared/services/user.service';
 import {User} from '../../shared/models/user.model';
 import {Message} from '../../shared/models/message.model';
-import {AuthService} from '../../shared/auth.service';
+import {AuthService} from '../../shared/services/auth.service';
 import {ActivatedRoute, Params, Router} from '@angular/router';
+import {fadeStateTrigger} from '../../shared/animations/fade.animation';
+import {Meta, Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
+  animations: [fadeStateTrigger]
 })
 export class LoginComponent implements OnInit {
 
@@ -20,8 +23,15 @@ export class LoginComponent implements OnInit {
     private userService: UserService,
     private authService: AuthService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private title: Title,
+    private meta: Meta
   ) {
+    title.setTitle('Entrance');
+    meta.addTags([
+      {name: 'keywords', content: 'login, entrance, system'},
+      {name: 'description', content: 'page for system entrance'},
+    ]);
   }
 
   private showMessage(message: Message) {
@@ -36,8 +46,14 @@ export class LoginComponent implements OnInit {
     this.route.queryParams.subscribe((params: Params) => {
       if (params['nowCanLogin']) {
         this.showMessage({
-            text: 'Now you cat login to System',
+            text: 'Now you can login to System',
             type: 'success'
+          }
+        );
+      } else if (params['accessDenied']) {
+        this.showMessage({
+            text: 'You need login!',
+            type: 'danger'
           }
         );
       }

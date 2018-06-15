@@ -5,11 +5,12 @@ import {User} from '../models/user.model';
 
 @Injectable()
 export class BaseApi {
+
+  private baseUrl = 'http://usque.ru:3000';
+
   constructor(public http: HttpClient) {
 
   }
-
-  private baseUrl = 'http://localhost:3000';
 
   private getUrl(url: string = ''): string {
     return this.baseUrl + '/' + url;

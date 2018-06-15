@@ -15,3 +15,7 @@ ng update @angular/cli
 npm i @swimlane/ngx-charts --save
 npm i @swimlane/ngx-charts@5.3.1 --save
 npm i d3 --save
+
+nvm ls-remote
+nvm i 10.4.1
+npm i http-server json-server -g

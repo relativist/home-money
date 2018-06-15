@@ -3,6 +3,7 @@ import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {UserService} from '../../shared/services/user.service';
 import {User} from '../../shared/models/user.model';
 import {Router} from '@angular/router';
+import {Meta, Title} from '@angular/platform-browser';
 
 @Component({
   selector: 'app-registration',
@@ -15,7 +16,15 @@ export class RegistrationComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private router: Router) {
+    private router: Router,
+    private title: Title,
+    private meta: Meta
+  ) {
+    title.setTitle('Registration');
+    meta.addTags([
+      {name: 'registration', content: 'register, for log in, system'},
+      {name: 'description', content: 'page for registration'},
+    ]);
   }
 
   ngOnInit() {
