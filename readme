@@ -20,6 +20,7 @@ nvm ls-remote
 nvm i 10.4.1
 
 npm i http-server json-server -g
+ng build --prod
 http-server dist
 
 docker run  --rm -p 3000:80 -v /home/sit/angular/hmoney/db.json:/data/db.json clue/json-server
